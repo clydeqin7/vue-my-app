@@ -21,6 +21,35 @@
          @change="handleEventChange"
         ></Event>
       </a-tab-pane>
+      <a-tab-pane key="slot" tab="插槽">
+        <h2>2.6 新语法</h2>
+        <SlotDemo>
+          <p>default slot</p>
+          <template v-slot:title>
+            <p>title slot 1</p>
+            <p>title slot 2</p>
+          </template>
+          <template v-slot:item="props">
+            <p>item slot-scope {{ props }}</p>
+          </template>
+        </SlotDemo>
+        <h2>老语法</h2>
+        <SlotDemo>
+          <p>default solt</p>
+          <p slot="title">title solt 1</p>
+          <p slot="title">title solt 2</p>
+          <P slot="item" slot-scope="props">item slot-scope {{ props }}</P>
+        </SlotDemo>
+      </a-tab-pane>
+      <a-tab-pane key="bigProps" tab="大属性">
+        <BigProps
+          :name="bigPropsName"
+          :on-change="handleBigPropChange"
+          :slot-default="getDefault()"
+          :slot-title="getTitle()"
+          :slot-scope-item="getItem"
+        ></BigProps>
+      </a-tab-pane>
     </a-tabs>
   </div>
 </template>
@@ -28,12 +57,20 @@
 <script>
 import Props from './Props.vue'
 import Event from './Event.vue'
+import Slot from './Slot.vue'
+import BigProps from './BigProps.vue'
 export default {
-  components: { Props, Event },
+  components: { 
+    Props, 
+    Event, 
+    SlotDemo: Slot,
+    BigProps 
+  },
   data () {
     return {
       type: 'danger',
-      name: ''
+      name: '',
+      bigPropsName: 'Hello world!'
     }
   },
   methods: {
@@ -42,7 +79,24 @@ export default {
     },
     handleEventChange(val) {
       this.name = val
-    } 
+    },
+    handleBigPropChange(val) {
+      this.bigPropsName = val
+    },
+    getDefault() {
+      return [this.$createElement('p', 'default slot')]
+    },
+    getTitle() {
+      return [
+        this.$createElement('p', 'title slot1'),
+        this.$createElement('p', 'title slot2')
+      ]
+    },
+    getItem(props) {
+      return [
+        this.$createElement('p', `item slot-scope ${JSON.stringify(props)}`)
+      ]
+    }
   }
 }
 </script>
