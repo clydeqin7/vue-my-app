@@ -18,11 +18,6 @@ export default {
   props: {
     name: String
   },
-  data () {
-    return {
-      name: ''
-    }
-  },
   methods: {
     handleChange(e) {
       this.$emit('change', e.target.value)
@@ -30,6 +25,7 @@ export default {
     handleDivClick() {
       this.$emit('change', '')
     },
+    // eslint-disable-next-line
     handleClick(e) {
       // 都会失败
       // e.stopPropagation()
