@@ -21,11 +21,11 @@ export default new Router({
       name: "双向绑定和单向数据流不冲突",
       component: () => import("./views/1.2")
     },
-    // {
-    //   path: "/1.3",
-    //   name: "虚拟Dom",
-    //   component: () => import("./views/1.3")
-    // },
+    {
+      path: "/1.3",
+      name: "虚拟Dom",
+      component: () => import("./views/1.3")
+    },
     // {
     //   path: "/1.4",
     //   name: "如何触发组件的更新",
