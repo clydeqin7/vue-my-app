@@ -31,11 +31,11 @@ export default new Router({
     //   name: "如何触发组件的更新",
     //   component: () => import("./views/1.4")
     // },
-    // {
-    //   path: "/1.5",
-    //   name: "合理应用计算属性和侦听器",
-    //   component: () => import("./views/1.5")
-    // },
+    {
+      path: "/1.5",
+      name: "合理应用计算属性和侦听器",
+      component: () => import("./views/1.5")
+    },
     // {
     //   path: "/1.6",
     //   name: "生命周期的应用场景和函数式组件",
