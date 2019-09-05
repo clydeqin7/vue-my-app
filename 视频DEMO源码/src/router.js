@@ -36,11 +36,11 @@ export default new Router({
       name: "合理应用计算属性和侦听器",
       component: () => import("./views/1.5")
     },
-    // {
-    //   path: "/1.6",
-    //   name: "生命周期的应用场景和函数式组件",
-    //   component: () => import("./views/1.6")
-    // },
+    {
+      path: "/1.6",
+      name: "生命周期的应用场景和函数式组件",
+      component: () => import("./views/1.6")
+    },
     // {
     //   path: "/1.7",
     //   name: "指令的本质",
