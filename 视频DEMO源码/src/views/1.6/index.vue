@@ -19,6 +19,9 @@
           </template>
         </TempVar>
       </a-tab-pane>
+      <a-tab-pane key="countdown" tab="倒计时组件">
+        <myCountdown/>
+      </a-tab-pane>
     </a-tabs>
   </div>
 </template>
@@ -26,11 +29,13 @@
 import Clock from "./Clock";
 import Functional from "./Functional";
 import TempVar from "./TempVar";
+import myCountdown from './myCountdown';
 export default {
   components: {
     Clock,
     Functional,
-    TempVar
+    TempVar,
+    myCountdown
   },
   data() {
     return {
